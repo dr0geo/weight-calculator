@@ -51,6 +51,7 @@ const addDescription = () => {
   if (planetValue.value !== 'none') {
     description.innerHTML = `The weight of the object on ${planetValue.value.toUpperCase()}`
     frameDescription.style.display = 'flex';
+    circle.style.display = 'flex';
     container.style.justifyContent = 'space-around';
   } else {
     frameDescription.style.display = 'none';
@@ -76,8 +77,20 @@ const calculateMass = () => {
   circle.innerHTML = newMass + ' KG';
 }
 
+// Display a message if no number or incorrect format is entered:
+
+const displayErrorMessage = () => {
+  if (mass.value.search(/[^\d]/g) >= 0) {
+    description.innerHTML = 'Please enter a number in the input field!';
+    frameDescription.style.display = 'flex';
+    circle.style.display = 'none';
+    mass.style.color = 'red';
+  } else {
+    mass.style.color = 'black';
+  }
+}
+
 button.addEventListener('click', changePlanet);
 button.addEventListener('click', addDescription);
 button.addEventListener('click', calculateMass);
-
-console.log()
+button.addEventListener('click', displayErrorMessage);
