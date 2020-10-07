@@ -49,7 +49,7 @@ const changePlanet = () => {
 
 const addDescription = () => {
   if (planetValue.value !== 'none') {
-    description.innerHTML = `The weight of the object on ${planetValue.value.toUpperCase()}`
+    description.innerHTML = `The weight of the object on <strong>${planetValue.value.toUpperCase()}</strong>`
     frameDescription.style.display = 'flex';
     circle.style.display = 'flex';
     container.style.justifyContent = 'space-around';
@@ -73,14 +73,14 @@ const planets = {
 }
 
 const calculateMass = () => {
-  let newMass = Math.round(mass.value * planets[planetValue.value] * 100) / 100;
-  circle.innerHTML = newMass + ' KG';
+  let newWeight = Math.round(mass.value * planets[planetValue.value] * 9.81 * 100) / 100;
+  circle.innerHTML = newWeight + ' N';
 }
 
 // Display a message if no number or incorrect format is entered:
 
 const displayErrorMessage = () => {
-  if (mass.value.search(/[^\d]/g) >= 0) {
+  if (mass.value.search(/[^\d]/g ) >= 0 || mass.value === '') {
     description.innerHTML = 'Please enter a number in the input field!';
     frameDescription.style.display = 'flex';
     circle.style.display = 'none';
