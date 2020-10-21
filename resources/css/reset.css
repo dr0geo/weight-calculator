@@ -22,10 +22,10 @@ hgroup, nav, section {
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  box-sizing: border-box;
 }
 
 /* This helps to make newer HTML5 elements behave like DIVs in older browers */
